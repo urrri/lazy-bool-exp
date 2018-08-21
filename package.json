@@ -1,0 +1,39 @@
+{
+  "name": "lazy-bool-exp",
+  "version": "1.0.0",
+  "description": "Lazy Boolean expressions",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "build": "babel index.js --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urrri/lazy-bool-exp.git"
+  },
+  "keywords": [
+    "lazy",
+    "expression"
+  ],
+  "author": "Yury Goltsman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/urrri/lazy-bool-exp/issues"
+  },
+  "homepage": "https://github.com/urrri/lazy-bool-exp#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "@babel/register": "^7.0.0-rc.1",
+    "ava": "1.0.0-beta.7",
+    "babel-core": "^7.0.0-bridge.0"
+  },
+  "ava": {
+    "files": [
+      "test.js"
+    ],
+    "require": [
+      "@babel/register"
+    ]
+  }
+}
