@@ -2,10 +2,15 @@
   "name": "lazy-bool-exp",
   "version": "1.0.0",
   "description": "Lazy Boolean expressions",
-  "main": "index.js",
+  "main": "dist/umd/index.js",
+  "module": "dist/es5m/index.js",
+  "es2015": "dist/es6/index.js",
   "scripts": {
+    "build.es": "rollup -c tools/rollup.es.js",
+    "build.umd": "rollup -c tools/rollup.umd.js -n lasyexp",
+    "build.es5m": "rollup -c tools/rollup.es5m.js",
     "test": "ava",
-    "build": "babel index.js --out-dir dist"
+    "build": "npm run build.es && npm run build.umd && npm run build.es5m"
   },
   "repository": {
     "type": "git",
@@ -13,9 +18,12 @@
   },
   "keywords": [
     "lazy",
-    "expression"
+    "expression",
+    "calc",
+    "bool",
+    "boolean"
   ],
-  "author": "Yury Goltsman",
+  "author": "Yury Goltsman <yury.go@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/urrri/lazy-bool-exp/issues"
@@ -26,11 +34,21 @@
     "@babel/preset-env": "^7.0.0-rc.1",
     "@babel/register": "^7.0.0-rc.1",
     "ava": "1.0.0-beta.7",
-    "babel-core": "^7.0.0-bridge.0"
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "rollup": "^0.64.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^9.0.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^4.0.0"
   },
   "ava": {
     "files": [
-      "test.js"
+      "src/test.js"
     ],
     "require": [
       "@babel/register"
